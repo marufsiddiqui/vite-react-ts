@@ -1,28 +1,13 @@
-import axios from 'axios'
-import { useEffect, useState } from 'react'
-
 import { BookList } from './BookList.tsx'
+import { useBooks } from './useBooks.ts'
 
 export function BookListContainer() {
-  const [books, setBooks] = useState<Book[]>([])
-  const [loading, setLoading] = useState<boolean>(true)
-  const [error, setError] = useState<boolean>(false)
-
-  useEffect(() => {
-    const fetchBooks = async () => {
-      setError(false)
-      setLoading(true)
-      try {
-        const res = await axios.get('http://localhost:4000/books')
-        setBooks(res.data)
-      } catch (err) {
-        setError(true)
-      } finally {
-        setLoading(false)
-      }
-    }
-    fetchBooks()
-  }, [])
-
+  const { books, loading, error } = useBooks()
+  // if(loading) {
+  //   return <p>Loading...</p>
+  // }
+  // if(error) {
+  //   return <p>Error...</p>
+  // }
   return <BookList books={books} />
 }
