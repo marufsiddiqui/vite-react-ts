@@ -3,7 +3,7 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 
 const server = jsonServer.create()
-const router = jsonServer.router('db.json')
+const router = jsonServer.router('books.json')
 const middlewares = jsonServer.defaults()
 
 server.use((req, res, next) => {
