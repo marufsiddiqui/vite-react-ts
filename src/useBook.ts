@@ -4,7 +4,7 @@ import { useParams } from 'react-router'
 
 export function useBook() {
   const { id } = useParams<string>()
-  const [book, setBook] = useState<Book>({ id: '0', name: '' })
+  const [book, setBook] = useState<Book>({ id: 0, name: '' })
   const [loading, setLoading] = useState<boolean>(false)
   const [error, setError] = useState<boolean>(false)
 
