@@ -1,24 +1,14 @@
 import Typography from '@mui/material/Typography'
-import axios from 'axios'
-import { useEffect, useState } from 'react'
 
-import { BookList } from './BookList.tsx'
+import { BookListContainer } from './BookListContainer.tsx'
 
 function App() {
-  const [books, setBooks] = useState<Book[]>([])
-
-  useEffect(() => {
-    axios.get('http://localhost:4000/books').then((res) => {
-      setBooks(res.data)
-    })
-  }, [])
-
   return (
     <div>
       <Typography variant="h2" component="h2" data-test="heading">
         Bookish
       </Typography>
-      <BookList books={books} />
+      <BookListContainer />
     </div>
   )
 }
