@@ -39,4 +39,12 @@ test.describe('Bookish application', () => {
     expect(bookTitles).toEqual(bookNames)
     await expect(page.locator('.book-item h2')).toHaveText(bookNames)
   })
+
+  test('Goes to the detail page', async ({ page }) => {
+    await page.goto('http://localhost:3000/')
+    await page.waitForResponse('http://localhost:4000/books')
+    await page.getByText('View Details').first().click()
+    await expect(page).toHaveURL(/\/books\/1/)
+    await expect(page.locator('h2.book-title')).toContainText('Refactoring')
+  })
 })
