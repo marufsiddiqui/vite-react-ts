@@ -4,6 +4,7 @@ export function BookList({ books }: { books: Book[] }) {
       {books.map((book, index) => (
         <div className="book-item" key={index}>
           <h2>{book.name}</h2>
+          <a href={`/books/${book.id}`}>View Details</a>
         </div>
       ))}
     </div>
