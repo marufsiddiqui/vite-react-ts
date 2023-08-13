@@ -1,8 +1,8 @@
 import Typography from '@mui/material/Typography'
 import { Route, Routes } from 'react-router'
 
-import { BookDetailContainer } from './BookDetailContainer.tsx'
-import { BookListContainer } from './BookListContainer.tsx'
+import { BookDetailContainer } from './BookDetail/BookDetailContainer.tsx'
+import { BookListContainer } from './BookList/BookListContainer.tsx'
 
 function App() {
   return (
